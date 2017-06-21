@@ -8,13 +8,15 @@ import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { EventService } from './services/event.service';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     ThumbnailComponent,
-    NavbarComponent
+    NavbarComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
