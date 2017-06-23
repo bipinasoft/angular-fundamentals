@@ -3,8 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
+import { CreateComponent } from './create/create.component';
 
 const appRoutes: Routes = [
+    // Angular doesn't have a way to determine the correct parameter being passed in (not able to distinguish between /:id and /new).
+    // Placing 'list/new' on top to get processed first.
+    {
+        path: 'list/new',
+        component: CreateComponent
+    },
     {
         path: '',
         redirectTo: '/list',

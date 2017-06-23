@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { EventService } from './services/event.service';
 import { DetailsComponent } from './details/details.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DetailsComponent } from './details/details.component';
     ListComponent,
     ThumbnailComponent,
     NavbarComponent,
-    DetailsComponent
+    DetailsComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
