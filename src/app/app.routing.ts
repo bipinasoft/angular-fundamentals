@@ -6,6 +6,7 @@ import { DetailsComponent } from './details/details.component';
 import { CreateComponent } from './create/create.component';
 import { ErrorComponent } from './error/error.component';
 import { RouteActivatorService } from './services/route-activator.service';
+import { ListResolverService } from './services/list-resolver.service';
 
 const appRoutes: Routes = [
     // Angular doesn't have a way to determine the correct parameter being passed in (not able to distinguish between /:id and /new).
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     },
     {
         path: 'list',
-        component: ListComponent
+        component: ListComponent,
+        resolve: { events: ListResolverService }
     },
     {
         path: 'list/:id',

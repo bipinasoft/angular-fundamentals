@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../services/event.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -7,11 +8,11 @@ import { EventService } from '../services/event.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  events: any[];
+  events: any;
 
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.events = this.eventService.getMockEventData();
+    this.events = this.route.snapshot.data['events'];
   }
 }

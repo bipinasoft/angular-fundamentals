@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EVENTS } from '../../assets/mockdata/mock.events';
+import { Subject } from 'rxjs/RX';
 
 @Injectable()
 export class EventService {
@@ -7,7 +8,11 @@ export class EventService {
   constructor() { }
 
   getMockEventData() {
-    return EVENTS;
+    let subject = new Subject();
+
+    setTimeout(() => {subject.next(EVENTS); subject.complete(); }, 100);
+
+    return subject;
   }
 
   getEvent(id: number) {
