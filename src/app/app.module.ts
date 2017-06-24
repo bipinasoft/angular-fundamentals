@@ -9,8 +9,10 @@ import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { EventService } from './services/event.service';
+import { RouteActivatorService } from './services/route-activator.service';
 import { DetailsComponent } from './details/details.component';
 import { CreateComponent } from './create/create.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,15 @@ import { CreateComponent } from './create/create.component';
     ThumbnailComponent,
     NavbarComponent,
     DetailsComponent,
-    CreateComponent
+    CreateComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     routing
   ],
-  providers: [EventService],
+  providers: [EventService, RouteActivatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
