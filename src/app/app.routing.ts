@@ -12,7 +12,8 @@ const appRoutes: Routes = [
     // Placing 'list/new' on top to get processed first.
     {
         path: 'list/new',
-        component: CreateComponent
+        component: CreateComponent,
+        canDeactivate: ['canDeactivateCreateEvent']
     },
     {
         path: '',

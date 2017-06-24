@@ -29,7 +29,22 @@ import { ErrorComponent } from './error/error.component';
     FormsModule,
     routing
   ],
-  providers: [EventService, RouteActivatorService],
+  providers: [
+    EventService,
+    RouteActivatorService,
+    {
+      provide: 'canDeactivateCreateEvent',
+      useValue: checkDirtyState
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+function checkDirtyState(component: CreateComponent) {
+  if (component.isDirty) {
+    return window.confirm('You have not saved this event, do you really want to cancel?');
+  }
+
+  return true;
+}
