@@ -34,6 +34,10 @@ const appRoutes: Routes = [
     {
         path: 'error',
         component: ErrorComponent
+    },
+    {
+        path: 'users',
+        loadChildren: 'app/users/user.module#UserModule'
     }
 ];
 

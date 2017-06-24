@@ -43,7 +43,7 @@ import { ErrorComponent } from './error/error.component';
 })
 export class AppModule { }
 
-function checkDirtyState(component: CreateComponent) {
+export function checkDirtyState(component: CreateComponent) {
   if (component.isDirty) {
     return window.confirm('You have not saved this event, do you really want to cancel?');
   }
