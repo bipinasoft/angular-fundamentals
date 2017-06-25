@@ -1,4 +1,4 @@
-export interface ISession {
+export interface ISessionModel {
     id: number;
     name: string;
     presenter: string;

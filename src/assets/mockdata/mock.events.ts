@@ -1,6 +1,6 @@
-import { IEvent } from '../../app/models/IEvent';
+import { IEventModel } from '../../app/models/IEventModel';
 
-export const EVENTS: IEvent[] = [
+export const EVENTS: IEventModel[] = [
   {
     id: 1,
     name: 'Angular Connect',

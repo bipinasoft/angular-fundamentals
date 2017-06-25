@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../services/event.service';
 import { ActivatedRoute } from '@angular/router';
-import { IEvent } from '../models/IEvent';
+import { IEventModel } from '../models/IEventModel';
 
 @Component({
   selector: 'app-details',
@@ -9,7 +9,7 @@ import { IEvent } from '../models/IEvent';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  event: IEvent;
+  event: IEventModel;
 
   constructor(private eventService: EventService, private route: ActivatedRoute) { }
 

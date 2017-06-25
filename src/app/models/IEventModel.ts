@@ -1,6 +1,6 @@
-import { ISession } from './ISession';
+import { ISessionModel } from './ISessionModel';
 
-export interface IEvent {
+export interface IEventModel {
     id: number;
     name: string;
     date: Date;
@@ -13,5 +13,5 @@ export interface IEvent {
         country: string;
     },
     onlineUrl?: string;
-    sessions: ISession[];
+    sessions: ISessionModel[];
 }

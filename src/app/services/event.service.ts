@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { EVENTS } from '../../assets/mockdata/mock.events';
 import { Observable, Subject } from 'rxjs/RX';
-import { IEvent } from '../models/IEvent';
+import { IEventModel } from '../models/IEventModel';
 
 @Injectable()
 export class EventService {
 
   constructor() { }
 
-  getMockEventData(): Observable<IEvent[]> {
+  getMockEventData(): Observable<IEventModel[]> {
 
-    let subject = new Subject<IEvent[]>();
+    let subject = new Subject<IEventModel[]>();
     setTimeout(() => { subject.next(EVENTS); subject.complete(); }, 100);
 
     return subject;
   }
 
-  getEvent(id: number): IEvent {
+  getEvent(id: number): IEventModel {
     return EVENTS.find(event => event.id === id);
   }
 }

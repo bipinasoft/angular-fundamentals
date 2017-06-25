@@ -15,6 +15,6 @@ export class CreateComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/list']);
+    this.router.navigate(['list']);
   }
 }

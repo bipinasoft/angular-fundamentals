@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { EventService } from './services/event.service';
 import { RouteActivatorService } from './services/route-activator.service';
+import { AuthenticationService } from './services/authentication.service';
 import { ListResolverService } from './services/list-resolver.service';
 import { DetailsComponent } from './details/details.component';
 import { CreateComponent } from './create/create.component';
@@ -33,11 +34,12 @@ import { ErrorComponent } from './error/error.component';
   providers: [
     EventService,
     RouteActivatorService,
+    ListResolverService,
+    AuthenticationService,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
-    },
-    ListResolverService
+    }
   ],
   bootstrap: [AppComponent]
 })

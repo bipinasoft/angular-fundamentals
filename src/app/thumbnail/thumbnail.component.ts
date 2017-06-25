@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IEvent } from '../models/IEvent';
+import { IEventModel } from '../models/IEventModel';
 
 @Component({
   selector: 'app-thumbnail',
@@ -7,7 +7,7 @@ import { IEvent } from '../models/IEvent';
   styleUrls: ['./thumbnail.component.css']
 })
 export class ThumbnailComponent implements OnInit {
-  @Input() event: IEvent;
+  @Input() event: IEventModel;
 
   constructor() { }
 
