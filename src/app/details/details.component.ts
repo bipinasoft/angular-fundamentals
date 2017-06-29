@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from '../services/event.service';
+import { EventService } from '../providers/event.service';
 import { ActivatedRoute } from '@angular/router';
 import { IEventModel } from '../models/IEventModel';
 

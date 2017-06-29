@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -8,10 +8,10 @@ import { ListComponent } from './list/list.component';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
-import { EventService } from './services/event.service';
-import { RouteActivatorService } from './services/route-activator.service';
-import { AuthenticationService } from './services/authentication.service';
-import { ListResolverService } from './services/list-resolver.service';
+import { EventService } from './providers/event.service';
+import { RouteActivatorService } from './providers/route-activator.service';
+import { AuthenticationService } from './providers/authentication.service';
+import { ListResolverService } from './providers/list-resolver.service';
 import { DetailsComponent } from './details/details.component';
 import { CreateComponent } from './create/create.component';
 import { ErrorComponent } from './error/error.component';
@@ -29,6 +29,7 @@ import { ErrorComponent } from './error/error.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     routing
   ],
   providers: [
