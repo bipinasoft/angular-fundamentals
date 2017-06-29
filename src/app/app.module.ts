@@ -15,6 +15,7 @@ import { ListResolverService } from './providers/list-resolver.service';
 import { DetailsComponent } from './details/details.component';
 import { CreateComponent } from './create/create.component';
 import { ErrorComponent } from './error/error.component';
+import { SessionComponent } from './session/session.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ErrorComponent } from './error/error.component';
     NavbarComponent,
     DetailsComponent,
     CreateComponent,
-    ErrorComponent
+    ErrorComponent,
+    SessionComponent
   ],
   imports: [
     BrowserModule,

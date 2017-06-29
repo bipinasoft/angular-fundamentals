@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
 import { CreateComponent } from './create/create.component';
+import { SessionComponent } from './session/session.component';
 import { ErrorComponent } from './error/error.component';
 import { RouteActivatorService } from './providers/route-activator.service';
 import { ListResolverService } from './providers/list-resolver.service';
@@ -30,6 +31,10 @@ const appRoutes: Routes = [
         path: 'list/:id',
         component: DetailsComponent,
         canActivate: [RouteActivatorService]
+    },
+    {
+        path: 'session',
+        component: SessionComponent
     },
     {
         path: 'error',
