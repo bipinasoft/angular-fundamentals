@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ISessionModel } from '../models/ISessionModel';
+
 @Component({
   selector: 'app-session',
   templateUrl: './session.component.html',
   styleUrls: ['./session.component.css']
 })
+
 export class SessionComponent implements OnInit {
   newSessionForm: FormGroup;
   name: FormControl;
@@ -22,7 +24,11 @@ export class SessionComponent implements OnInit {
     this.presenter = new FormControl('', Validators.required);
     this.duration = new FormControl('', Validators.required);
     this.level = new FormControl('', Validators.required);
-    this.abstract = new FormControl('', [Validators.required, Validators.maxLength(400)]);
+    this.abstract = new FormControl('', [
+      Validators.required,
+      Validators.maxLength(400),
+      this.restrictedWords
+    ]);
 
     this.newSessionForm = new FormGroup({
       name: this.name,
@@ -33,8 +39,14 @@ export class SessionComponent implements OnInit {
     });
   }
 
-  saveSession(formValues) {
+  private restrictedWords(control: FormControl): { [key: string]: any } {
+    return control.value.includes('foo')
+      ? { restrictedWords: 'foo' }
+      : null;
+  }
 
+  saveSession(formValues) {
+    
     let session: ISessionModel = {
       id: undefined,
       name: formValues.name,
