@@ -6,7 +6,7 @@ import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class EventService {
-  eventsUrl: string = 'http://localhost:3000/events';
+  eventsUrl: string = 'http://localhost:3000/events/';
 
   constructor(private http: Http) { }
 
@@ -14,12 +14,6 @@ export class EventService {
     let subject = new Subject<IEventModel[]>();
     setTimeout(() => { subject.next(EVENTS); subject.complete(); }, 100);
     return subject;
-  }
-
-  getServiceEventData(): Observable<IEventModel[]> {
-    return this.http.get(this.eventsUrl)
-      .map((response: Response) => { return <IEventModel>response.json(); })
-      .catch(this.handleError);
   }
 
   getEvent(id: number): IEventModel {
@@ -32,7 +26,25 @@ export class EventService {
     EVENTS.push(event);
   }
 
+  /* to be used later when hooking up to json-server
+  getServiceEventData(): Observable<IEventModel[]> {
+    return this.http.get(this.eventsUrl)
+      .map((response: Response) => { return <IEventModel[]>response.json(); })
+      .catch(this.handleError);
+  }
+
+  getServiceEvent(id: number): Observable<IEventModel> {
+    return this.http.get(this.eventsUrl + id)
+      .map((response: Response) => { return <IEventModel>response.json(); })
+      .catch(this.handleError);
+  }
+
   private handleError(error: Response) {
     return Observable.throw(error.statusText);
   }
+
+  // Add to details.component.ts file:
+  this.eventService.getServiceEvent(+this.route.snapshot.params['id'])
+    .subscribe((event: IEventModel) => { this.event = event; });
+  */
 }

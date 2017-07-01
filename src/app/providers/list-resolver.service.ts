@@ -9,9 +9,9 @@ export class ListResolverService implements Resolve<any> {
 
   resolve() {
     // Mock Data resolver
-    //return this.eventService.getMockEventData().map(events => events);
+    return this.eventService.getMockEventData().map(events => events);
 
     // local json-server.
-    return this.eventService.getServiceEventData();
+    //return this.eventService.getServiceEventData();
   }
 }
