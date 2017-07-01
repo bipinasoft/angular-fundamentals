@@ -8,6 +8,10 @@ export class ListResolverService implements Resolve<any> {
   constructor(private eventService: EventService) { }
 
   resolve() {
-    return this.eventService.getMockEventData().map(events => events);
+    // Mock Data resolver
+    //return this.eventService.getMockEventData().map(events => events);
+
+    // Firebase service
+    return this.eventService.getServiceEventData();
   }
 }

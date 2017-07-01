@@ -1,13 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
-import { firebaseConfig } from '../environments/firebase.config';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ListComponent } from './list/list.component';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -35,10 +32,8 @@ import { SessionComponent } from './session/session.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
     routing
   ],
   providers: [
