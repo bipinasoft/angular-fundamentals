@@ -11,7 +11,7 @@ export class ListResolverService implements Resolve<any> {
     // Mock Data resolver
     //return this.eventService.getMockEventData().map(events => events);
 
-    // Firebase service
+    // local json-server.
     return this.eventService.getServiceEventData();
   }
 }

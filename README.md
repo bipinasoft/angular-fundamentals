@@ -26,3 +26,10 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Json-Server
+Running local [json-server](https://github.com/typicode/json-server) to serve out `ngEvents.json` from the assets folder.
+
+Run `npm install -g json-server` to install json-server, then `cd` to the assets directory and run `json-server --watch ngEvents.json`.
+
+Events available at `http://localhost:3000/events`.
