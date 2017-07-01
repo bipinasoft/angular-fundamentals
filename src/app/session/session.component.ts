@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ISessionModel } from '../models/ISessionModel';
 
@@ -9,6 +9,9 @@ import { ISessionModel } from '../models/ISessionModel';
 })
 
 export class SessionComponent implements OnInit {
+  @Output() saveNewSession = new EventEmitter();
+  @Output() cancelAddSession = new EventEmitter();
+
   newSessionForm: FormGroup;
   name: FormControl;
   presenter: FormControl;
@@ -46,7 +49,7 @@ export class SessionComponent implements OnInit {
   }
 
   saveSession(formValues) {
-    
+
     let session: ISessionModel = {
       id: undefined,
       name: formValues.name,
@@ -57,7 +60,10 @@ export class SessionComponent implements OnInit {
       voters: []
     };
 
-    console.log(session);
+    this.saveNewSession.emit(session);
   }
 
+  cancel() {
+    this.cancelAddSession.emit();
+  }
 }

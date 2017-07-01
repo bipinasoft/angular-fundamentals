@@ -26,6 +26,11 @@ export class EventService {
     EVENTS.push(event);
   }
 
+  updateEvent(event) {
+    let index = EVENTS.findIndex(x => x.id = event.id);
+    EVENTS[index] = event;
+  }
+
   /* to be used later when hooking up to json-server
   getServiceEventData(): Observable<IEventModel[]> {
     return this.http.get(this.eventsUrl)

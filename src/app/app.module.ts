@@ -17,6 +17,7 @@ import { DetailsComponent } from './details/details.component';
 import { CreateComponent } from './create/create.component';
 import { ErrorComponent } from './error/error.component';
 import { SessionComponent } from './session/session.component';
+import { SessionListComponent } from './session-list/session-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SessionComponent } from './session/session.component';
     DetailsComponent,
     CreateComponent,
     ErrorComponent,
-    SessionComponent
+    SessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
