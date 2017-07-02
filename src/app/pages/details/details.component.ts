@@ -13,6 +13,7 @@ export class DetailsComponent implements OnInit {
   addMode: boolean;
   event: IEventModel;
   filterBy: string = 'all';
+  sortBy: string = 'votes';
 
   constructor(private eventService: EventService, private route: ActivatedRoute) { }
 
