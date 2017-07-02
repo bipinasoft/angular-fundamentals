@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-error',
-  templateUrl: './error.component.html',
-  styleUrls: ['./error.component.css']
+  template: `<h1 class="errorMessage">404 - Page Not Found.</h1>`,
+  styles: [`.errorMessage {
+              margin-top: 150px;
+              font-size: 75px;
+              text-align: center;
+            }`]
 })
-export class ErrorComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class ErrorComponent { }

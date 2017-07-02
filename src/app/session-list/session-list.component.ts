@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ISessionModel } from '../models/ISessionModel';
 
 @Component({
@@ -6,11 +6,6 @@ import { ISessionModel } from '../models/ISessionModel';
   templateUrl: './session-list.component.html',
   styleUrls: ['./session-list.component.css']
 })
-export class SessionListComponent implements OnInit {
+export class SessionListComponent {
   @Input() sessions: ISessionModel[];
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

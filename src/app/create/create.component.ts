@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventService } from '../providers/event.service';
 
@@ -7,13 +7,10 @@ import { EventService } from '../providers/event.service';
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
-export class CreateComponent implements OnInit {
+export class CreateComponent {
   isDirty: boolean = true;
 
   constructor(private router: Router, private eventService: EventService) { }
-
-  ngOnInit() {
-  }
 
   saveEvent(formValues) {
     this.eventService.saveEvent(formValues);
