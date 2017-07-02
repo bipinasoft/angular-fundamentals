@@ -28,14 +28,6 @@ export class SessionListComponent implements OnChanges {
       });
     }
   }
-
-  sortByNameAsc() {
-
-  }
-
-  sortByVotesDesc() {
-
-  }
 }
 
 export function sortByNameAsc(s1: ISessionModel, s2: ISessionModel) {
