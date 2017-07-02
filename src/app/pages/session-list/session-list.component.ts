@@ -21,6 +21,7 @@ export class SessionListComponent implements OnChanges {
 
   filterSessions(filter) {
     if (filter === 'all') {
+      // clone sessions
       this.visibleSessions = this.sessions.slice(0);
     } else {
       this.visibleSessions = this.sessions.filter(session => {

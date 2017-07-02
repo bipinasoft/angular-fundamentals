@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../../providers/authentication.service';
 import { Router } from '@angular/router';
+import { TOASTR_TOKEN } from '../../../providers/toastr.service';
+import { IToastrModel } from '../../../models/IToastrModel';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +15,7 @@ export class ProfileComponent implements OnInit {
   private firstName: FormControl;
   private lastName: FormControl;
 
-  constructor(private authService: AuthenticationService, private router: Router) { }
+  constructor(private authService: AuthenticationService, private router: Router, @Inject(TOASTR_TOKEN) private toastr: IToastrModel) { }
 
   ngOnInit() {
     this.firstName = new FormControl(this.authService.currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-Z].*')]);
@@ -26,12 +28,11 @@ export class ProfileComponent implements OnInit {
   }
 
   saveProfile(formValues) {
-
     if (this.profileForm.valid) {
       this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
-      this.router.navigate(['list']);
+      this.toastr.success('Profile Saved');
+      //this.router.navigate(['list']);
     }
-
   }
 
   cancel() {
@@ -45,5 +46,4 @@ export class ProfileComponent implements OnInit {
   validateLastName(): boolean {
     return this.lastName.valid || this.lastName.untouched;
   }
-
 }
