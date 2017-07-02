@@ -5,20 +5,20 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
-import { ListComponent } from './list/list.component';
-import { ThumbnailComponent } from './thumbnail/thumbnail.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { ListComponent } from './pages/list/list.component';
+import { ThumbnailComponent } from './pages/thumbnail/thumbnail.component';
+import { NavbarComponent } from './pages/navbar/navbar.component';
 
 import { EventService } from './providers/event.service';
 import { RouteActivatorService } from './providers/route-activator.service';
 import { AuthenticationService } from './providers/authentication.service';
 import { ListResolverService } from './providers/list-resolver.service';
-import { DetailsComponent } from './details/details.component';
-import { CreateComponent } from './create/create.component';
-import { ErrorComponent } from './error/error.component';
-import { SessionComponent } from './session/session.component';
-import { SessionListComponent } from './session-list/session-list.component';
-import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { CreateComponent } from './pages/create/create.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { SessionComponent } from './pages/session/session.component';
+import { SessionListComponent } from './pages/session-list/session-list.component';
+import { CollapsibleWellComponent } from './pages/collapsible-well/collapsible-well.component';
 import { DurationPipe } from './formatting/duration.pipe';
 
 @NgModule({

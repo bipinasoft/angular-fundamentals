@@ -1,8 +1,8 @@
-///<reference path="../../../node_modules/moment/moment.d.ts" />
+///<reference path="../../../../node_modules/moment/moment.d.ts" />
 import { Component, OnInit } from '@angular/core';
-import { EventService } from '../providers/event.service';
+import { EventService } from '../../providers/event.service';
 import { ActivatedRoute } from '@angular/router';
-import { IEventModel } from '../models/IEventModel';
+import { IEventModel } from '../../models/IEventModel';
 import * as moment from 'moment';
 
 @Component({

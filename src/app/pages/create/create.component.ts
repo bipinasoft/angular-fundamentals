@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventService } from '../providers/event.service';
+import { EventService } from '../../providers/event.service';
 
 @Component({
   selector: 'app-create',

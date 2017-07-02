@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ISessionModel } from '../models/ISessionModel';
+import { ISessionModel } from '../../models/ISessionModel';
 
 @Component({
   selector: 'app-session',

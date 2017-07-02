@@ -1,11 +1,11 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ListComponent } from './list/list.component';
-import { DetailsComponent } from './details/details.component';
-import { CreateComponent } from './create/create.component';
-import { SessionComponent } from './session/session.component';
-import { ErrorComponent } from './error/error.component';
+import { ListComponent } from './pages/list/list.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { CreateComponent } from './pages/create/create.component';
+import { SessionComponent } from './pages/session/session.component';
+import { ErrorComponent } from './pages/error/error.component';
 import { RouteActivatorService } from './providers/route-activator.service';
 import { ListResolverService } from './providers/list-resolver.service';
 
@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/list',
+        redirectTo: 'list',
         pathMatch: 'full'
     },
     {
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     },
     {
         path: 'users',
-        loadChildren: 'app/users/user.module#UserModule'
+        loadChildren: 'app/pages/users/user.module#UserModule'
     }
 ];
 
