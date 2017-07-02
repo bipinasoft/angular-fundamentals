@@ -22,7 +22,6 @@ export class SessionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
     this.name = new FormControl('', Validators.required);
     this.presenter = new FormControl('', Validators.required);
     this.duration = new FormControl('', Validators.required);
@@ -49,7 +48,6 @@ export class SessionComponent implements OnInit {
   }
 
   saveSession(formValues) {
-
     let session: ISessionModel = {
       id: undefined,
       name: formValues.name,

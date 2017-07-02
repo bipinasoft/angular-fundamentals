@@ -18,6 +18,7 @@ import { CreateComponent } from './create/create.component';
 import { ErrorComponent } from './error/error.component';
 import { SessionComponent } from './session/session.component';
 import { SessionListComponent } from './session-list/session-list.component';
+import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SessionListComponent } from './session-list/session-list.component';
     CreateComponent,
     ErrorComponent,
     SessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   imports: [
     BrowserModule,
