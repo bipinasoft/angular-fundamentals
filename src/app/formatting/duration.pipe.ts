@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DurationPipe implements PipeTransform {
 
+  // Note: In angular2 or greater, pipes only handle formatting. Filtering and sorting are separate.
   transform(value: number): string {
     switch (value) {
 

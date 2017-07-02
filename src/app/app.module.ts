@@ -19,7 +19,7 @@ import { ErrorComponent } from './error/error.component';
 import { SessionComponent } from './session/session.component';
 import { SessionListComponent } from './session-list/session-list.component';
 import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.component';
-import { DurationPipe } from './filters/duration.pipe';
+import { DurationPipe } from './formatting/duration.pipe';
 
 @NgModule({
   declarations: [
