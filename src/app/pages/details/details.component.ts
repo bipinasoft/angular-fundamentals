@@ -12,6 +12,7 @@ import { ISessionModel } from '../../models/ISessionModel';
 export class DetailsComponent implements OnInit {
   addMode: boolean;
   event: IEventModel;
+  filterBy: string = 'all';
 
   constructor(private eventService: EventService, private route: ActivatedRoute) { }
 
