@@ -35,12 +35,7 @@ export class EventService {
       .map((response: Response) => { return <IEventModel>response.json(); })
       .catch(this.handleError);
   }
-
-  updateEvent(event) {
-    let index = EVENTS.findIndex(x => x.id = event.id);
-    EVENTS[index] = event;
-  }
-
+  
   searchSessions(searchTerm: string) {
     var term = searchTerm.toLocaleLowerCase();
     var results: ISessionModel[] = [];
