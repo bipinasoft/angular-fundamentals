@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService } from '../../providers/authentication.service';
+import { EventService } from '../../providers/event.service';
+import { ISessionModel } from '../../models/ISessionModel';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
+  searchTerm: string = '';
+  foundSessions: ISessionModel[];
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService, private eventService: EventService) { }
 
-  ngOnInit() {
+  searchSessions(searchTerm) {
+    this.eventService.searchSessions(searchTerm)
+      .subscribe(sessions => { this.foundSessions = sessions; })
   }
-
 }
