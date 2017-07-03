@@ -19,12 +19,14 @@ import { AuthenticationService } from './providers/authentication.service';
 import { EventService } from './providers/event.service';
 import { RouteActivatorService } from './providers/route-activator.service';
 import { ListResolverService } from './providers/list-resolver.service';
+import { VoterService } from './providers/voter.service';
 import { TOASTR_TOKEN } from './providers/toastr.service';
 import { JQ_TOKEN } from './providers/jQuery.service';
 import { DurationPipe } from './formatting/duration.pipe';
 import { ModalTriggerDirective } from './directives/modal-trigger.directive';
 import { routing } from './app.routing';
 import { IToastrModel } from './models/IToastrModel';
+import { UpvoteComponent } from './pages/upvote/upvote.component';
 
 declare let toastr: IToastrModel;
 declare let jQuery: Object;
@@ -43,7 +45,8 @@ declare let jQuery: Object;
     CollapsibleWellComponent,
     DurationPipe,
     ModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ declare let jQuery: Object;
     RouteActivatorService,
     ListResolverService,
     AuthenticationService,
+    VoterService,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
   ],
   bootstrap: [AppComponent]
