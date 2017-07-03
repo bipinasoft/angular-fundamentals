@@ -11,23 +11,13 @@ export class EventService {
 
   constructor(private http: Http) { }
 
-  getMockEventData(): Observable<IEventModel[]> {
-    let subject = new Subject<IEventModel[]>();
-    setTimeout(() => { subject.next(EVENTS); subject.complete(); }, 100);
-    return subject;
-  }
-  
-  getEvent(id: number): IEventModel {
-    return EVENTS.find(event => event.id === id);
-  }
-
-  getServiceEventData(): Observable<IEventModel[]> {
+  getEventData(): Observable<IEventModel[]> {
     return this.http.get(this.eventsUrl)
       .map((response: Response) => { return <IEventModel[]>response.json(); })
       .catch(this.handleError);
   }
 
-  getServiceEvent(id: number): Observable<IEventModel> {
+  getEvent(id: number): Observable<IEventModel> {
     return this.http.get(this.eventsUrl + id)
       .map((response: Response) => { return <IEventModel>response.json(); })
       .catch(this.handleError);

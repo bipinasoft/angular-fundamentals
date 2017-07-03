@@ -17,8 +17,8 @@ import { ModalComponent } from './pages/modal/modal.component';
 
 import { AuthenticationService } from './providers/authentication.service';
 import { EventService } from './providers/event.service';
-import { RouteActivatorService } from './providers/route-activator.service';
 import { ListResolverService } from './providers/list-resolver.service';
+import { EventResolverService } from './providers/event-resolver.service';
 import { VoterService } from './providers/voter.service';
 import { TOASTR_TOKEN } from './providers/toastr.service';
 import { JQ_TOKEN } from './providers/jQuery.service';
@@ -61,8 +61,8 @@ declare let jQuery: Object;
     EventService,
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQ_TOKEN, useValue: jQuery },
-    RouteActivatorService,
     ListResolverService,
+    EventResolverService,
     AuthenticationService,
     VoterService,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
