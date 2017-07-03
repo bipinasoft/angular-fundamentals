@@ -16,9 +16,25 @@ export class EventService {
     setTimeout(() => { subject.next(EVENTS); subject.complete(); }, 100);
     return subject;
   }
-
+  
   getEvent(id: number): IEventModel {
     return EVENTS.find(event => event.id === id);
+  }
+
+  getServiceEventData(): Observable<IEventModel[]> {
+    return this.http.get(this.eventsUrl)
+      .map((response: Response) => { return <IEventModel[]>response.json(); })
+      .catch(this.handleError);
+  }
+
+  getServiceEvent(id: number): Observable<IEventModel> {
+    return this.http.get(this.eventsUrl + id)
+      .map((response: Response) => { return <IEventModel>response.json(); })
+      .catch(this.handleError);
+  }
+
+  private handleError(error: Response) {
+    return Observable.throw(error.statusText);
   }
 
   saveEvent(event) {
@@ -38,7 +54,8 @@ export class EventService {
 
     EVENTS.forEach(event => {
       var matchingSessions = event.sessions.filter(session => session.name.toLocaleLowerCase().indexOf(term) > -1);
-      matchingSessions = matchingSessions.map((session: any) => { session.eventId = event.id;
+      matchingSessions = matchingSessions.map((session: any) => {
+      session.eventId = event.id;
         return session;
       })
       results = results.concat(matchingSessions);
@@ -48,26 +65,4 @@ export class EventService {
     setTimeout(() => { emitter.emit(results); }, 100);
     return emitter;
   }
-
-  /* to be used later when hooking up to json-server
-  getServiceEventData(): Observable<IEventModel[]> {
-    return this.http.get(this.eventsUrl)
-      .map((response: Response) => { return <IEventModel[]>response.json(); })
-      .catch(this.handleError);
-  }
-
-  getServiceEvent(id: number): Observable<IEventModel> {
-    return this.http.get(this.eventsUrl + id)
-      .map((response: Response) => { return <IEventModel>response.json(); })
-      .catch(this.handleError);
-  }
-
-  private handleError(error: Response) {
-    return Observable.throw(error.statusText);
-  }
-
-  // Add to details.component.ts file:
-  this.eventService.getServiceEvent(+this.route.snapshot.params['id'])
-    .subscribe((event: IEventModel) => { this.event = event; });
-  */
 }
