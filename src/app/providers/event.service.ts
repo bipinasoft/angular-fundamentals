@@ -3,7 +3,7 @@ import { EVENTS } from '../../assets/mockdata/mock.events';
 import { Observable, Subject } from 'rxjs/RX';
 import { IEventModel } from '../models/IEventModel';
 import { ISessionModel } from '../models/ISessionModel';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class EventService {
@@ -27,10 +27,13 @@ export class EventService {
     return Observable.throw(error.statusText);
   }
 
-  saveEvent(event) {
-    event.id = 999;
-    event.session = [];
-    EVENTS.push(event);
+  saveEvent(event):  Observable<IEventModel> {
+    let headers = new Headers({'Content-Type': 'Application/json'});
+    let options = new RequestOptions({headers: headers});
+
+    return this.http.post(this.eventsUrl, JSON.stringify(event), options)
+      .map((response: Response) => { return <IEventModel>response.json(); })
+      .catch(this.handleError);
   }
 
   updateEvent(event) {
