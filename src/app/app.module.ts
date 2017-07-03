@@ -27,6 +27,7 @@ import { ModalTriggerDirective } from './directives/modal-trigger.directive';
 import { routing } from './app.routing';
 import { IToastrModel } from './models/IToastrModel';
 import { UpvoteComponent } from './pages/upvote/upvote.component';
+import { ValidateLocationDirective } from './directives/validate-location.directive';
 
 declare let toastr: IToastrModel;
 declare let jQuery: Object;
@@ -46,7 +47,8 @@ declare let jQuery: Object;
     DurationPipe,
     ModalComponent,
     ModalTriggerDirective,
-    UpvoteComponent
+    UpvoteComponent,
+    ValidateLocationDirective
   ],
   imports: [
     BrowserModule,
