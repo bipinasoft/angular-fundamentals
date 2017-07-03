@@ -6,13 +6,17 @@ export class VoterService {
 
   constructor() { }
 
-  addVoter(session: ISessionModel, userName: string) {
-    session.voters.push(userName);
-  }
-  deleteVoter(session: ISessionModel, userName: string) {
+  deleteVote(session: ISessionModel, userName: string): void {
     session.voters = session.voters.filter(voter => voter !== userName);
   }
-  userHasVoted(session: ISessionModel, userName: string) {
+
+  addVote(session: ISessionModel, userName: string): void {
+    session.voters.push(userName);
+  }
+
+  userHasVoted(session: ISessionModel, userName: string): boolean {
+    // same as .contains
+    // could also do "return session.voters.indexOf(userName) > -1;"
     return session.voters.some(voter => voter === userName);
   }
 }

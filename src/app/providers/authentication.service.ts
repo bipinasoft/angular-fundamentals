@@ -10,7 +10,7 @@ export class AuthenticationService {
   authenticateUser(userName: string, password: string) {
     this.currentUser = {
       id: 1,
-      userName: 'admin',
+      userName: userName,
       firstName: 'John',
       lastName: 'Doe'
     };
