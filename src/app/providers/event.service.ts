@@ -23,19 +23,19 @@ export class EventService {
       .catch(this.handleError);
   }
 
-  private handleError(error: Response) {
-    return Observable.throw(error.statusText);
-  }
-
-  saveEvent(event):  Observable<IEventModel> {
-    let headers = new Headers({'Content-Type': 'Application/json'});
-    let options = new RequestOptions({headers: headers});
+  saveEvent(event): Observable<IEventModel> {
+    let headers = new Headers({ 'Content-Type': 'Application/json' });
+    let options = new RequestOptions({ headers: headers });
 
     return this.http.post(this.eventsUrl, JSON.stringify(event), options)
       .map((response: Response) => { return <IEventModel>response.json(); })
       .catch(this.handleError);
   }
-  
+
+  private handleError(error: Response) {
+    return Observable.throw(error.statusText);
+  }
+
   searchSessions(searchTerm: string) {
     var term = searchTerm.toLocaleLowerCase();
     var results: ISessionModel[] = [];
@@ -43,7 +43,7 @@ export class EventService {
     EVENTS.forEach(event => {
       var matchingSessions = event.sessions.filter(session => session.name.toLocaleLowerCase().indexOf(term) > -1);
       matchingSessions = matchingSessions.map((session: any) => {
-      session.eventId = event.id;
+        session.eventId = event.id;
         return session;
       })
       results = results.concat(matchingSessions);
