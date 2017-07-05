@@ -3,6 +3,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
+import { MaterialModule, MdDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import 'hammerjs';
+
 import { AppComponent } from './app.component';
 import { ListComponent } from './pages/list/list.component';
 import { ThumbnailComponent } from './pages/thumbnail/thumbnail.component';
@@ -20,17 +24,10 @@ import { EventService } from './providers/event.service';
 import { ListResolverService } from './providers/list-resolver.service';
 import { EventResolverService } from './providers/event-resolver.service';
 import { VoterService } from './providers/voter.service';
-import { TOASTR_TOKEN } from './providers/toastr.service';
-import { JQ_TOKEN } from './providers/jQuery.service';
 import { DurationPipe } from './formatting/duration.pipe';
-import { ModalTriggerDirective } from './directives/modal-trigger.directive';
 import { routing } from './app.routing';
-import { IToastrModel } from './models/IToastrModel';
 import { UpvoteComponent } from './pages/upvote/upvote.component';
 import { ValidateLocationDirective } from './directives/validate-location.directive';
-
-declare let toastr: IToastrModel;
-declare let jQuery: Object;
 
 @NgModule({
   declarations: [
@@ -46,21 +43,22 @@ declare let jQuery: Object;
     CollapsibleWellComponent,
     DurationPipe,
     ModalComponent,
-    ModalTriggerDirective,
     UpvoteComponent,
     ValidateLocationDirective
   ],
+  entryComponents: [ModalComponent],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    MaterialModule,
+    BrowserAnimationsModule,
+    MdDialogModule,
     routing
   ],
   providers: [
     EventService,
-    { provide: TOASTR_TOKEN, useValue: toastr },
-    { provide: JQ_TOKEN, useValue: jQuery },
     ListResolverService,
     EventResolverService,
     AuthenticationService,
