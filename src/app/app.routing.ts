@@ -1,11 +1,11 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ListComponent } from './pages/list/list.component';
-import { DetailsComponent } from './pages/details/details.component';
-import { CreateComponent } from './pages/create/create.component';
-import { SessionComponent } from './pages/session/session.component';
-import { ErrorComponent } from './pages/error/error.component';
+import { ListComponent } from './components/list/list.component';
+import { DetailsComponent } from './components/details/details.component';
+import { CreateComponent } from './components/create/create.component';
+import { SessionComponent } from './components/session/session.component';
+import { ErrorComponent } from './components/error/error.component';
 import { ListResolverService } from './providers/list-resolver.service';
 import { EventResolverService } from './providers/event-resolver.service';
 
