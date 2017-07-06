@@ -24,7 +24,7 @@ import { EventService } from './providers/event.service';
 import { ListResolverService } from './providers/list-resolver.service';
 import { EventResolverService } from './providers/event-resolver.service';
 import { VoterService } from './providers/voter.service';
-import { DurationPipe } from './formatting/duration.pipe';
+import { DurationPipe } from './pipes/duration.pipe';
 import { routing } from './app.routing';
 import { UpvoteComponent } from './components/upvote/upvote.component';
 import { ValidateLocationDirective } from './directives/validate-location.directive';
