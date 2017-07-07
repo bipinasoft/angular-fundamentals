@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     },
     {
         path: 'users',
-        loadChildren: 'app/pages/users/user.module#UserModule'
+        loadChildren: 'app/components/users/user.module#UserModule'
     }
 ];
 
