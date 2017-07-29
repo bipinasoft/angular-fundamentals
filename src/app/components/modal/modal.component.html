@@ -2,7 +2,7 @@
 <div md-dialog-content>
   <div class="modal-body">
     <div class="list-group">
-      <a class="list-group-item" (click)="closeModal()" *ngFor="let session of foundSessions" [routerLink]="['/list', session.eventId]">{{session.name}}</a>
+      <a class="list-group-item" (click)="closeModal()" *ngFor="let session of foundSessions" [routerLink]="['/list', session.eventsId]">{{session.name}}</a>
     </div>
   </div>
 </div>

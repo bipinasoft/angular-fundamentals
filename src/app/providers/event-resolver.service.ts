@@ -9,7 +9,6 @@ export class EventResolverService implements Resolve<any> {
   constructor(private eventService: EventService) { }
 
   resolve(route: ActivatedRouteSnapshot) {
-    // local json-server.
     return this.eventService.getEvent(+route.params['id']);
   }
 }
