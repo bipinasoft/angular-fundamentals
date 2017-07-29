@@ -7,7 +7,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class EventService {
-  eventsUrl: string = 'http://localhost:3000/events/';
+  eventsUrl: string = 'http://localhost:50829/api/events/';
 
   constructor(private http: Http) { }
 

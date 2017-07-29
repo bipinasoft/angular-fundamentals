@@ -50,12 +50,13 @@ export class SessionComponent implements OnInit {
   saveSession(formValues) {
     let session: ISessionModel = {
       id: undefined,
+      eventsId: undefined,
       name: formValues.name,
       duration: +formValues.duration,
       level: formValues.level,
       presenter: formValues.presenter,
       abstract: formValues.abstract,
-      voters: []
+      voters: ""
     };
 
     this.saveNewSession.emit(session);
