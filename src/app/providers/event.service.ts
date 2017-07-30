@@ -11,22 +11,22 @@ export class EventService {
   constructor(private http: Http) { }
 
   getEventData(): Observable<IEventModel[]> {
-    return this.http.get(this.eventsUrl + '/events')
+    return this.http.get(this.eventsUrl + 'events')
       .map((response: Response) => { return <IEventModel[]>response.json(); })
       .catch(this.handleError);
   }
 
   getEvent(id: number): Observable<IEventModel> {
-    return this.http.get(this.eventsUrl + '/events/' + id)
+    return this.http.get(this.eventsUrl + 'events/' + id)
       .map((response: Response) => { return <IEventModel>response.json(); })
       .catch(this.handleError);
   }
 
-  saveEvent(event): Observable<IEventModel> {
-    let headers = new Headers({ 'Content-Type': 'Application/json' });
+  saveEvent(event: IEventModel): Observable<IEventModel> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-
-    return this.http.post(this.eventsUrl + '/events/save', JSON.stringify(event), options)
+    
+    return this.http.post(this.eventsUrl + 'events/save', JSON.stringify(event), options)
       .map((response: Response) => { return <IEventModel>response.json(); })
       .catch(this.handleError);
   }
@@ -36,7 +36,7 @@ export class EventService {
   }
 
   searchSessions(searchTerm: string) {
-    return this.http.get(this.eventsUrl + '/sessions/search?search=' + searchTerm)
+    return this.http.get(this.eventsUrl + 'sessions/search?search=' + searchTerm)
       .map((response: Response) => { return <ISessionModel>response.json(); })
       .catch(this.handleError);
   }
