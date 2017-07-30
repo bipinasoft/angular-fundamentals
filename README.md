@@ -27,9 +27,6 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## Json-Server
-Running local [json-server](https://github.com/typicode/json-server) to serve out `ngEvents.json` in the db folder.
-
-Run `npm install -g json-server` to install json-server, then run `json-server --watch db/ngEvents.json`.
-
-Events available at `http://localhost:3000/events`.
+## ASP.NET Core Web API
+I moved all the event and session data from the course into a SQL database and created an ASP.NET Core Web API to serve up the data. 
+I will upload the db and web api procject when complete.
