@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../providers/event.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IEventModel } from '../../models/IEventModel';
 import { ISessionModel } from '../../models/ISessionModel';
 
@@ -15,7 +15,7 @@ export class DetailsComponent implements OnInit {
   filterBy: string = 'all';
   sortBy: string = 'votes';
 
-  constructor(private eventService: EventService, private route: ActivatedRoute) { }
+  constructor(private eventService: EventService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.data.forEach((data) => {
@@ -29,12 +29,13 @@ export class DetailsComponent implements OnInit {
   }
 
   saveNewSession(session: ISessionModel) {
-    const maxId = Math.max.apply(null, this.event.sessions.map(s => s.id));
+    this.eventService.saveSession(session).subscribe(session => {
+      this.addMode = false;
+    });
 
+    const maxId = Math.max.apply(null, this.event.sessions.map(s => s.id));
     session.id = maxId + 1;
     this.event.sessions.push(session);
-    this.eventService.saveEvent(this.event).subscribe();
-    this.addMode = false;
   }
 
   cancelAddSession() {

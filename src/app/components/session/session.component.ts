@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ISessionModel } from '../../models/ISessionModel';
+import { IEventModel } from '../../models/IEventModel';
 
 @Component({
   selector: 'app-session',
@@ -9,6 +10,7 @@ import { ISessionModel } from '../../models/ISessionModel';
 })
 
 export class SessionComponent implements OnInit {
+  @Input() event: IEventModel;
   @Output() saveNewSession = new EventEmitter();
   @Output() cancelAddSession = new EventEmitter();
 
@@ -50,7 +52,7 @@ export class SessionComponent implements OnInit {
   saveSession(formValues) {
     let session: ISessionModel = {
       id: undefined,
-      eventsId: undefined,
+      eventsId: this.event.id,
       name: formValues.name,
       duration: +formValues.duration,
       level: formValues.level,

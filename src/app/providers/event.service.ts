@@ -25,8 +25,17 @@ export class EventService {
   saveEvent(event: IEventModel): Observable<IEventModel> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    
+
     return this.http.post(this.eventsUrl + 'events/save', JSON.stringify(event), options)
+      .map((response: Response) => { return <IEventModel>response.json(); })
+      .catch(this.handleError);
+  }
+
+  saveSession(session: ISessionModel): Observable<ISessionModel> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.eventsUrl + 'sessions/save', JSON.stringify(session), options)
       .map((response: Response) => { return <IEventModel>response.json(); })
       .catch(this.handleError);
   }
