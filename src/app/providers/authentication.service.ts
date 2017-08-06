@@ -29,8 +29,45 @@ export class AuthenticationService {
     return !!this.currentUser;
   }
 
+  checkAuthenticationStatus() {
+    return this.http.get(this.eventsUrl + 'userauthentications/status')
+      .map((response: any) => {
+        if (response._body) {
+          return response.json();
+        } else {
+          return {};
+        }
+      })
+      .do(currentUser => {
+        if (!!currentUser.userName) {
+          this.currentUser = currentUser;
+        }
+      }).subscribe();
+  }
+
   updateCurrentUser(firstName: string, lastName: string) {
     this.currentUser.firstName = firstName;
     this.currentUser.lastName = lastName;
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.eventsUrl + 'userauthentications/save', JSON.stringify(this.currentUser), options)
+      .map((response: Response) => { return <IUserModel>response.json(); })
+      .catch(this.handleError);
+  }
+
+  logout() {
+    let logoutInfo = { UserName: this.currentUser.userName, Password: '' };
+    this.currentUser = undefined;
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.eventsUrl + 'userauthentications/logout', JSON.stringify(logoutInfo), options);
+  }
+
+  private handleError(error: Response) {
+    return Observable.throw(error.statusText);
   }
 }

@@ -28,9 +28,10 @@ export class ProfileComponent implements OnInit {
 
   saveProfile(formValues) {
     if (this.profileForm.valid) {
-      this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
-      this.snackBar.open('Profile Saved', undefined, { duration: 2000 });
-      //this.router.navigate(['list']);
+      this.authService.updateCurrentUser(formValues.firstName, formValues.lastName)
+        .subscribe(() => {
+          this.snackBar.open('Profile Saved', undefined, { duration: 2000 });
+        });
     }
   }
 
@@ -44,5 +45,11 @@ export class ProfileComponent implements OnInit {
 
   validateLastName(): boolean {
     return this.lastName.valid || this.lastName.untouched;
+  }
+
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['/users/login']);
+    });
   }
 }
