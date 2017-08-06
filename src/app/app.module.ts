@@ -7,6 +7,7 @@ import { MaterialModule, MdDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { ThumbnailComponent } from './components/thumbnail/thumbnail.component';
@@ -19,7 +20,6 @@ import { SessionListComponent } from './components/session-list/session-list.com
 import { CollapsibleWellComponent } from './components/collapsible-well/collapsible-well.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { UpvoteComponent } from './components/upvote/upvote.component';
-import { routing } from './app.routing';
 
 import { AuthenticationService } from './providers/authentication.service';
 import { EventService } from './providers/event.service';
@@ -55,7 +55,7 @@ import { ValidateLocationDirective } from './directives/validate-location.direct
     MaterialModule,
     BrowserAnimationsModule,
     MdDialogModule,
-    routing
+    AppRoutingModule
   ],
   providers: [
     EventService,
