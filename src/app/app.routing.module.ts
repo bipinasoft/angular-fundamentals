@@ -10,7 +10,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { ListResolverService } from './providers/list-resolver.service';
 import { EventResolverService } from './providers/event-resolver.service';
 
-const appRoutes: Routes = [
+const routes: Routes = [
     // Angular doesn't have a way to determine the correct parameter being passed in (not able to distinguish between /:id and /new).
     // Placing 'list/new' on top to get processed first.
     {
@@ -48,7 +48,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(appRoutes)],
+    imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }
