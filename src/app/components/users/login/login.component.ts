@@ -8,12 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  loginInvalid: boolean = false;
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 
   login(loginValues) {
-    this.authService.authenticateUser(loginValues.userName, loginValues.password);
-    this.router.navigate(['list']);
+    this.authService.authenticateUser(loginValues.userName, loginValues.password)
+      .subscribe(resp => {
+        if (!resp) {
+          this.loginInvalid = true;
+        }
+        else {
+          this.router.navigate(['list']);
+        }
+      });
   }
 
   cancel() {
