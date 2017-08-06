@@ -16,9 +16,16 @@ export class VoterService {
   }
 
   addVote(session: ISessionModel, userName: string): void {
-    let voters: string[] = session.voters.split(",");
-    voters.push(userName);
-    session.voters = voters.join();
+    let voters: string[];
+
+    if (session.voters === '') {
+      session.voters = userName;
+    }
+    else {
+      voters = session.voters.split(",");
+      voters.push(userName);
+      session.voters = voters.join();
+    }
 
     this.eventService.saveSession(session).subscribe();
   }
