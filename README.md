@@ -14,6 +14,13 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
+## Test Setup
+
+Install the karma-cli globally:
+    `npm install -g karma-cli`
+Some additional package requirements for running the karma tests, however these are already included in the `package.json`.  Only detailed for reference sake.
+    `npm install karma@1.3.0 karma-chrome-launcher@2.0.0 karma-jasmine@1.0.2 jasmine-core@2.5.2 @types/jasmine@2.5.38 -D`
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
