@@ -40,4 +40,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## ASP.NET Core Web API
 I moved all the event and session data from the course into a SQL database and created an ASP.NET Core Web API to serve up the data.
 
-Github repo:  [Events.Data.Service](https://github.com/dlemke/Events.Data.Service).
+[Events.Data.Service](https://github.com/dlemke/Events.Data.Service).
