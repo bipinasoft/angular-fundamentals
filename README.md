@@ -20,7 +20,7 @@ Install the karma-cli globally:
 
 `npm install -g karma-cli`
 
-Additional package requirements for running unit tests, already included in the `package.json` (detailed for reference).
+Additional package requirements for running unit tests, these are already included in the `package.json` but detailed here for reference.
 
 `npm install karma@1.3.0 karma-chrome-launcher@2.0.0 karma-jasmine@1.0.2 jasmine-core@2.5.2 @types/jasmine@2.5.38 -D`
 
