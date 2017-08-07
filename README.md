@@ -38,5 +38,6 @@ Before running the tests make sure you are serving the app via `ng serve`.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## ASP.NET Core Web API
-I moved all the event and session data from the course into a SQL database and created an ASP.NET Core Web API to serve up the data. 
-[Events.Data.Service](https://github.com/dlemke/Events.Data.Service).
+I moved all the event and session data from the course into a SQL database and created an ASP.NET Core Web API to serve up the data.
+
+Github repo:  [Events.Data.Service](https://github.com/dlemke/Events.Data.Service).
