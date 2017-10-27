@@ -8,7 +8,7 @@ export class VoterService {
   constructor(private eventService: EventService) { }
 
   deleteVote(session: ISessionModel, userName: string): void {
-    let voters: string[] = session.voters.split(",");
+    let voters: string[] = session.voters.split(',');
     voters = voters.filter(voter => voter !== userName);
     session.voters = voters.join();
 
@@ -20,9 +20,8 @@ export class VoterService {
 
     if (session.voters === '') {
       session.voters = userName;
-    }
-    else {
-      voters = session.voters.split(",");
+    } else {
+      voters = session.voters.split(',');
       voters.push(userName);
       session.voters = voters.join();
     }
@@ -33,7 +32,7 @@ export class VoterService {
   userHasVoted(session: ISessionModel, userName: string): boolean {
     // same as .contains
     // could also do "return session.voters.indexOf(userName) > -1;"
-    let voters: string[] = session.voters.split(",");
+    const voters: string[] = session.voters.split(',');
     return voters.some(voter => voter === userName);
   }
 }
