@@ -8,7 +8,6 @@ export class ListResolverService implements Resolve<any> {
   constructor(private eventService: EventService) { }
 
   resolve() {
-    // local json-server.
     return this.eventService.getEventData();
   }
 }
